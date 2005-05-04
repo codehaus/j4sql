@@ -1,0 +1,71 @@
+  <project>
+    <pomVersion>4</pomVersion>
+    <artifactId>j4sql-doclet</artifactId>
+    <name>J4SQL Doclet libraries</name>
+    <groupId>j4sql</groupId>
+    <currentVersion>0.1-dev</currentVersion>
+    <organization>
+        <name>J4SQL Developers</name>
+        <url>http://www.j4sql.org/</url>
+    </organization>
+    <inceptionYear>2005</inceptionYear>
+    <description>
+    J4SQL is a set of tools that enables a platform independent way of writing and deploying SQL Stored Procedures, Functions and Triggers using Java(TM).
+    
+    J4SQL uses J2SE 5.0 annotations or Doclets to define how Java methods should be exposed in SQL DDL and will provide generators for the most commonly used SQL databases. A plugin architecture makes it possible to extend the set of DDL generators to include new flavors.
+    
+    J4SQL is Free Software licensed under a BSD-style license that allows it to be used in commercial or other open source projects.
+    
+    Java. is a registered trademark of Sun Microsystems, Inc. in the United States and other countries. 
+    </description>
+    <shortDescription>
+    J4SQL is a set of tools that enables a platform independent way of writing and deploying SQL Stored Procedures, Functions and Triggers using Java(TM).
+    </shortDescription>
+    <siteAddress>j4sql.codehaus.org</siteAddress>
+    <siteDirectory>/home/projects/j4sql/public_html/</siteDirectory>
+    <repository>
+	<url>http://svn.plj.codehaus.org</url>
+    </repository>
+    <url>http://www.j4sql.org/</url>
+    <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
+    <developers>
+        <developer>
+            <name>Dave Cramer</name>
+            <id>davec</id>
+            <organization>PostgreSQL Intl.</organization>
+            <roles>
+                <role>Despot</role>
+            </roles>
+            <timezone>GMT-5</timezone>
+        </developer>
+        <developer>
+            <name>Thomas Halgren</name>
+            <id>thhal</id>
+            <organization>PL/Java</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>GMT+1</timezone>
+        </developer>
+        <developer>
+            <name>Laszlo Hornyak</name>
+            <id>kocka</id>
+            <organization>PL-J</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>GMT+1</timezone>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>BSD</name>
+        </license>
+    </licenses>
+    <dependencies>
+    </dependencies>
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+        <unitTestSourceDirectory>src/tests</unitTestSourceDirectory>
+    </build>
+</project>
