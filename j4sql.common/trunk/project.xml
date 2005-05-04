@@ -1,0 +1,70 @@
+  <project>
+    <pomVersion>4</pomVersion>
+    <artifactId>j4sql-common</artifactId>
+    <name>J4SQL Common libraries</name>
+    <groupId>j4sql</groupId>
+    <currentVersion>0.1-dev</currentVersion>
+    <organization>
+        <name>J4SQL Developers</name>
+        <url>http://www.j4sql.org/</url>
+    </organization>
+    <inceptionYear>2005</inceptionYear>
+    <description></description>
+    <shortDescription></shortDescription>
+    <url>http://www.j4sql.org/</url>
+    <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
+    <developers>
+        <developer>
+            <name>Dave Cramer</name>
+            <id>davec</id>
+            <organization>PostgreSQL Intl.</organization>
+            <roles>
+                <role>Despot</role>
+            </roles>
+            <timezone>GMT-5</timezone>
+        </developer>
+        <developer>
+            <name>Thomas Halgren</name>
+            <id>thhal</id>
+            <organization>PL/Java</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>GMT+1</timezone>
+        </developer>
+        <developer>
+            <name>Laszlo Hornyak</name>
+            <id>kocka</id>
+            <organization>PL-J</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>GMT+1</timezone>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name/>
+            <email/>
+            <organization/>
+            <roles>
+                <role/>
+            </roles>
+            <url/>
+            <timezone/>
+        </contributor>
+    </contributors>
+    <licenses>
+        <license>
+            <name/>
+            <url/>
+            <distribution/>
+        </license>
+    </licenses>
+    <dependencies>
+    </dependencies>
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+        <unitTestSourceDirectory>src/tests</unitTestSourceDirectory>
+    </build>
+</project>
