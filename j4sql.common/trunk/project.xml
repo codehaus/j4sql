@@ -9,8 +9,23 @@
         <url>http://www.j4sql.org/</url>
     </organization>
     <inceptionYear>2005</inceptionYear>
-    <description></description>
-    <shortDescription></shortDescription>
+    <description>
+    J4SQL is a set of tools that enables a platform independent way of writing and deploying SQL Stored Procedures, Functions and Triggers using Java(TM).
+    
+    J4SQL uses J2SE 5.0 annotations or Doclets to define how Java methods should be exposed in SQL DDL and will provide generators for the most commonly used SQL databases. A plugin architecture makes it possible to extend the set of DDL generators to include new flavors.
+    
+    J4SQL is Free Software licensed under a BSD-style license that allows it to be used in commercial or other open source projects.
+    
+    Java. is a registered trademark of Sun Microsystems, Inc. in the United States and other countries. 
+    </description>
+    <shortDescription>
+    J4SQL is a set of tools that enables a platform independent way of writing and deploying SQL Stored Procedures, Functions and Triggers using Java(TM).
+    </shortDescription>
+    <siteAddress>j4sql.codehaus.org</siteAddress>
+    <siteDirectory>/home/projects/j4sql/public_html/</siteDirectory>
+    <repository>
+	<url>http://svn.plj.codehaus.org</url>
+    </repository>
     <url>http://www.j4sql.org/</url>
     <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
     <developers>
@@ -42,23 +57,9 @@
             <timezone>GMT+1</timezone>
         </developer>
     </developers>
-    <contributors>
-        <contributor>
-            <name/>
-            <email/>
-            <organization/>
-            <roles>
-                <role/>
-            </roles>
-            <url/>
-            <timezone/>
-        </contributor>
-    </contributors>
     <licenses>
         <license>
-            <name/>
-            <url/>
-            <distribution/>
+            <name>BSD</name>
         </license>
     </licenses>
     <dependencies>
