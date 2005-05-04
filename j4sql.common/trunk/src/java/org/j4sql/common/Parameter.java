@@ -14,43 +14,46 @@ package org.j4sql.common;
  */
 public class Parameter {
 
+	/** Parameter type: in */
 	public static final int PARAM_TYPE_IN = 0;
+	/** Parameter type: out */
 	public static final int PARAM_TYPE_OUT = 1;
+	/** Parameter type: in and out */
 	public static final int PARAM_TYPE_INOUT = 2;
 
 	public String getJavaType() {
-		return javaType;
+		return m_javaType;
 	}
 
 	public void setJavaType(String javaType) {
-		this.javaType = javaType;
+		this.m_javaType = javaType;
 	}
 
 	public String getName() {
-		return name;
+		return m_name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.m_name = name;
 	}
 
 	public int getParamType() {
-		return paramType;
+		return m_paramType;
 	}
 
 	public void setParamType(int paramType) {
-		this.paramType = paramType;
+		this.m_paramType = paramType;
 	}
 
 	public String getType() {
-		return type;
+		return m_type;
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this.m_type = type;
 	}
-	String name;
-	String javaType;
-	String type;
-	int paramType = PARAM_TYPE_IN;
+	private String m_name;
+	private String m_javaType;
+	private String m_type;
+	private int m_paramType = PARAM_TYPE_IN;
 }
