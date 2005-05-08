@@ -34,14 +34,14 @@ public abstract class Callable extends Entity {
 	private List m_parameters = null;
 	private boolean m_deterministic = false;
 	private boolean m_calledOnNullInput = false;
-
+	private String m_javaMethodName;
 
 	/**
 	 * Get call parameter list.
 	 * @return call parameter list.
 	 */
 	public List getParameters() {
-		return this.m_parameters;
+		return m_parameters;
 	}
 
 	/**
@@ -49,7 +49,7 @@ public abstract class Callable extends Entity {
 	 * @param parameters	the parameter list
 	 */
 	public void setParameters(List parameters) {
-		this.m_parameters = parameters;
+		m_parameters = parameters;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public abstract class Callable extends Entity {
 	 * @return security mode.
 	 */
 	public int getSecurity() {
-		return this.m_security;
+		return m_security;
 	}
 
 	/**
@@ -65,7 +65,7 @@ public abstract class Callable extends Entity {
 	 * @param security the security mode (SECURITY_INVOKER or SECURITY_DEFINER)
 	 */
 	public void setSecurity(int security) {
-		this.m_security = security;
+		m_security = security;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public abstract class Callable extends Entity {
 	 * @return	true if called on null.
 	 */
 	public boolean isCalledOnNullInput() {
-		return this.m_calledOnNullInput;
+		return m_calledOnNullInput;
 	}
 
 	/**
@@ -81,7 +81,7 @@ public abstract class Callable extends Entity {
 	 * @param calledOnNullInput	called on NULL input
 	 */
 	public void setCalledOnNullInput(boolean calledOnNullInput) {
-		this.m_calledOnNullInput = calledOnNullInput;
+		m_calledOnNullInput = calledOnNullInput;
 	}
 
 	/**
@@ -89,7 +89,7 @@ public abstract class Callable extends Entity {
 	 * @return true if the function is deterministic.
 	 */
 	public boolean isDeterministic() {
-		return this.m_deterministic;
+		return m_deterministic;
 	}
 
 	/**
@@ -97,7 +97,7 @@ public abstract class Callable extends Entity {
 	 * @param deterministic	deterministic
 	 */
 	public void setDeterministic(boolean deterministic) {
-		this.m_deterministic = deterministic;
+		m_deterministic = deterministic;
 	}
 
 	/**
@@ -105,7 +105,7 @@ public abstract class Callable extends Entity {
 	 * @return <code>SQLACCESS_NO</code>,<code>SQLACCESS_CONTAINS</code>,<code>SQLACCESS_READS</code>,<code>SQLACCESS_MODIFIES</code>
 	 */
 	public int getSqlAccess() {
-		return this.m_sqlAccess;
+		return m_sqlAccess;
 	}
 
 	/**
@@ -113,6 +113,22 @@ public abstract class Callable extends Entity {
 	 * @param sqlAccess	new value
 	 */
 	public void setSqlAccess(int sqlAccess) {
-		this.m_sqlAccess = sqlAccess;
+		m_sqlAccess = sqlAccess;
+	}
+
+	/**
+	 * Get the fully qualified name of the Java method, i.e. <code>&lt;className&gt;.&lt;methodName&gt;.</code>
+	 * @return The fully qualified name of the Java method.
+	 */
+	public final String getJavaMethodName() {
+		return m_javaMethodName;
+	}
+
+	/**
+	 * Set the fully qualified name of the Java method, i.e. <code>&lt;className&gt;.&lt;methodName&gt;.</code>
+	 * @param javaMethodName The fully qualified method name.
+	 */
+	public final void setJavaMethodName(String javaMethodName) {
+		m_javaMethodName = javaMethodName;
 	}
 }

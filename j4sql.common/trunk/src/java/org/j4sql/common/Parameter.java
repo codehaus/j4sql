@@ -21,12 +21,17 @@ public class Parameter {
 	/** Parameter type: in and out */
 	public static final int PARAM_TYPE_INOUT = 2;
 
+	private String m_name;
+	private String m_javaType;
+	private String m_sqlType;
+	private int m_paramType = PARAM_TYPE_IN;
+
 	public String getJavaType() {
 		return m_javaType;
 	}
 
 	public void setJavaType(String javaType) {
-		this.m_javaType = javaType;
+		m_javaType = javaType;
 	}
 
 	public String getName() {
@@ -34,7 +39,7 @@ public class Parameter {
 	}
 
 	public void setName(String name) {
-		this.m_name = name;
+		m_name = name;
 	}
 
 	public int getParamType() {
@@ -42,18 +47,14 @@ public class Parameter {
 	}
 
 	public void setParamType(int paramType) {
-		this.m_paramType = paramType;
+		m_paramType = paramType;
 	}
 
-	public String getType() {
-		return m_type;
+	public String getSqlType() {
+		return m_sqlType;
 	}
 
-	public void setType(String type) {
-		this.m_type = type;
+	public void setSqlType(String type) {
+		m_sqlType = type;
 	}
-	private String m_name;
-	private String m_javaType;
-	private String m_type;
-	private int m_paramType = PARAM_TYPE_IN;
 }
