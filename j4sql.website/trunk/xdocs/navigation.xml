@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="J4SQL">
+
+	<title>J4SQL</title>
+	<organizationLogo href="images/j4sql-logo1.png"></organizationLogo>
+
+	<body>
+		<search/>
+	</body>
+
+	<menu name="J4SQL project overview">
+		<item name="J4SQL" href="index.html"/>
+		<item name="" href=""/>
+	</menu>
+
+	<menu name="J4SQL Annotations">
+	</menu>
+
+	<menu name="J4SQL Doclet tags">
+	</menu>
+
+	<menu name="J4SQL Ant task">
+	</menu>
+
+	<menu name="J4SQL Maven plugin">
+	</menu>
+
+	<menu name="J4SQL Eclipse plugin">
+	</menu>
+
+</project>

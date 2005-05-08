@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<document>
+	<properties>
+		<title>J4SQL Project overview</title>
+	</properties>
+
+	<body>
+		<section name="Java Stored Procedures">
+		<p>
+		Java is a nearly ideal language for stored prcedures programming:
+		<ul>
+			<li>portable</li>
+			<li>based on open standards</li>
+			<li>safe</li>
+			<li>fast</li>
+			<li>developer-friendly</li>
+		</ul>
+		
+		</p>
+		</section>
+		<section name="The problem">
+		<p>
+		Though java bytecode is portable and java stored procedures can operate using standard APIs, until now there was no toolset for developers
+		to really use java stored procedures.
+		</p>
+		<p>
+		J4SQL has tools that makes life really easy.
+		</p>
+		</section>
+	</body>
+</document>
