@@ -30,6 +30,8 @@ public class Trigger extends Entity {
 	private boolean m_firedOnInsert = false;
 	private boolean m_firedOnDelete = false;
 	private boolean m_firedOnUpdate = false;
+	private String m_schema;
+	private String m_table;
 	
 	public Callable getCallable() {
 		return this.m_callable;
@@ -66,5 +68,34 @@ public class Trigger extends Entity {
 	}
 	public void setScope(int scope) {
 		m_scope = scope;
+	}
+
+	/**
+	 * @return Returns the schema where the table for this trigger is located.
+	 */
+	public String getSchema() {
+		return m_schema;
+	}
+
+	/**
+	 * Sets the schema for the table that this trigger is associated with.
+	 * @param schema The schema where the table for this trigger is located.
+	 */
+	public void setSchema(String schema) {
+		m_schema = schema;
+	}
+
+	/**
+	 * @return Returns the table that this trigger is associated with.
+	 */
+	public String getTable() {
+		return m_table;
+	}
+	/**
+	 * Sets the table to which this trigger is associated.
+	 * @param table The table to which this trigger is associated.
+	 */
+	public void setTable(String table) {
+		m_table = table;
 	}
 }
