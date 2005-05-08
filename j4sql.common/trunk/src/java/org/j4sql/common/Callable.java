@@ -35,6 +35,7 @@ public abstract class Callable extends Entity {
 	private boolean m_deterministic = false;
 	private boolean m_calledOnNullInput = false;
 	private String m_javaMethodName;
+	private String m_schema;
 
 	/**
 	 * Get call parameter list.
@@ -130,5 +131,21 @@ public abstract class Callable extends Entity {
 	 */
 	public final void setJavaMethodName(String javaMethodName) {
 		m_javaMethodName = javaMethodName;
+	}
+
+	/**
+	 * Get the SQL schema.
+	 * @return Returns the name of the SQL schema.
+	 */
+	public final String getSchema() {
+		return m_schema;
+	}
+
+	/**
+	 * Set the SQL schema.
+	 * @param schema The SQL schema to set.
+	 */
+	public final void setSchema(String schema) {
+		m_schema = schema;
 	}
 }
