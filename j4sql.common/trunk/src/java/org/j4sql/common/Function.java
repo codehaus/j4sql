@@ -15,36 +15,36 @@ package org.j4sql.common;
  */
 public class Function extends Callable {
 	private String m_javaReturnType = null;
-	private String m_returnType = null;
+	private String m_sqlReturnType = null;
 	
 	/**
 	 * Get the java return type of the function.
 	 * @return the FQN of the class
 	 */
 	public String getJavaReturnType() {
-		return this.m_javaReturnType;
+		return m_javaReturnType;
 	}
 	/**
 	 * Set java return type.
 	 * @param javaReturnType	the fqn of the class
 	 */
 	public void setJavaReturnType(String javaReturnType) {
-		this.m_javaReturnType = javaReturnType;
+		m_javaReturnType = javaReturnType;
 	}
 	
 	/**
 	 * Get RDBMS function return type.
 	 * @return RDBMS function return type
 	 */
-	public String getReturnType() {
-		return this.m_returnType;
+	public String getSqlReturnType() {
+		return m_sqlReturnType;
 	}
 	
 	/**
 	 * Set return type.
 	 * @param returnType return type
 	 */
-	public void setReturnType(String returnType) {
-		this.m_returnType = returnType;
+	public void setSqlReturnType(String returnType) {
+		m_sqlReturnType = returnType;
 	}
 }

@@ -25,7 +25,7 @@
   <siteAddress>j4sql.codehaus.org</siteAddress>
   <siteDirectory>/home/projects/j4sql/public_html/</siteDirectory>
   <repository>
-    <url>http://svn.plj.codehaus.org</url>
+    <url>http://svn.j4sql.codehaus.org</url>
   </repository>
   <reports>
     <report>maven-pmd-plugin</report>
@@ -41,9 +41,9 @@
       <timezone>GMT-5</timezone>
     </developer>
     <developer>
-      <name>Thomas Halgren</name>
+      <name>Thomas Hallgren</name>
       <id>thhal</id>
-      <organization>PL/Java</organization>
+      <organization>Tada AB, Stockholm Sweden</organization>
       <timezone>GMT+1</timezone>
     </developer>
     <developer>
@@ -60,7 +60,7 @@
   </licenses>
   <build>
     <sourceDirectory>src/java</sourceDirectory>
-    <unitTestSourceDirectory>tests/java</unitTestSourceDirectory>
+    <unitTestSourceDirectory>test/java</unitTestSourceDirectory>
   </build>
 </project>
 

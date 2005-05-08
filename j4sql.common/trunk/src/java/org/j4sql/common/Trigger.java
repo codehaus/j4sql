@@ -23,48 +23,48 @@ public class Trigger extends Entity {
 	/** Trigger fired for statement. */
 	public static final short SCOPE_STATEMENT = 1;
 	
-	private short m_fired = FIRED_BEFORE;
+	private short m_when = FIRED_BEFORE;
 	private Callable m_callable = null;
 	private int m_scope = SCOPE_ROW;
 	
-	private boolean firedOnInsert = false;
-	private boolean firedOnDelete = false;
-	private boolean firedOnUpdate = false;
+	private boolean m_firedOnInsert = false;
+	private boolean m_firedOnDelete = false;
+	private boolean m_firedOnUpdate = false;
 	
 	public Callable getCallable() {
 		return this.m_callable;
 	}
 	public void setCallable(Callable callable) {
-		this.m_callable = callable;
+		m_callable = callable;
 	}
-	public short getFired() {
-		return this.m_fired;
+	public short getWhen() {
+		return m_when;
 	}
-	public void setFired(short fired) {
-		this.m_fired = fired;
+	public void setWhen(short fired) {
+		m_when = fired;
 	}
 	public boolean isFiredOnDelete() {
-		return this.firedOnDelete;
+		return m_firedOnDelete;
 	}
 	public void setFiredOnDelete(boolean firedOnDelete) {
-		this.firedOnDelete = firedOnDelete;
+		m_firedOnDelete = firedOnDelete;
 	}
 	public boolean isFiredOnInsert() {
-		return this.firedOnInsert;
+		return m_firedOnInsert;
 	}
 	public void setFiredOnInsert(boolean firedOnInsert) {
-		this.firedOnInsert = firedOnInsert;
+		m_firedOnInsert = firedOnInsert;
 	}
 	public boolean isFiredOnUpdate() {
-		return this.firedOnUpdate;
+		return m_firedOnUpdate;
 	}
 	public void setFiredOnUpdate(boolean firedOnUpdate) {
-		this.firedOnUpdate = firedOnUpdate;
+		m_firedOnUpdate = firedOnUpdate;
 	}
 	public int getScope() {
-		return this.m_scope;
+		return m_scope;
 	}
 	public void setScope(int scope) {
-		this.m_scope = scope;
+		m_scope = scope;
 	}
 }

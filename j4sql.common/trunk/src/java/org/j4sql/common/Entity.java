@@ -13,12 +13,15 @@ package org.j4sql.common;
  */
 public abstract class Entity {
 	
+	private String m_name = null;
+	private String m_comment = null;
+
 	/**
 	 * Get the entity comment. Possibly a good candidate to push to the database with a 'COMMENT ON ...' statement, or simple sql comments if not supported.
 	 * @return	the entity comment.
 	 */
 	public String getComment() {
-		return this.m_comment;
+		return m_comment;
 	}
 	
 	/**
@@ -26,7 +29,7 @@ public abstract class Entity {
 	 * @param comment the new comment
 	 */
 	public void setComment(String comment) {
-		this.m_comment = comment;
+		m_comment = comment;
 	}
 	
 	/**
@@ -34,7 +37,7 @@ public abstract class Entity {
 	 * @return the name
 	 */
 	public String getName() {
-		return this.m_name;
+		return m_name;
 	}
 	
 	/**
@@ -42,8 +45,6 @@ public abstract class Entity {
 	 * @param name the name
 	 */
 	public void setName(String name) {
-		this.m_name = name;
+		m_name = name;
 	}
-	private String m_name = null;
-	private String m_comment = null;
 }
