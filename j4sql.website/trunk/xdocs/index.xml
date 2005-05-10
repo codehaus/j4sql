@@ -16,16 +16,16 @@
 			<li>fast</li>
 			<li>developer-friendly</li>
 		</ul>
-		
+		Java as stored procedure language is supported by the most database product: IBM DB2 UDB, Oracle, PostgreSQL, Sybase, and others.
 		</p>
 		</section>
-		<section name="The problem">
+		<section name="Why J4SQL?">
 		<p>
 		Though java bytecode is portable and java stored procedures can operate using standard APIs, until now there was no toolset for developers
 		to really use java stored procedures.
 		</p>
 		<p>
-		J4SQL has tools that makes life really easy.
+		J4SQL is an effort to make the life of java stored procedure developers really as easy as possible. J4SQL is 100% free for both open source and commercial developement.
 		</p>
 		</section>
 	</body>
