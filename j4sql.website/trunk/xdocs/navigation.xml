@@ -10,22 +10,32 @@
 
 	<menu name="J4SQL project overview">
 		<item name="J4SQL" href="index.html"/>
-		<item name="" href=""/>
 	</menu>
 
 	<menu name="J4SQL Annotations">
 	</menu>
 
 	<menu name="J4SQL Doclet tags">
+		<item name="Tag howto" href="doclet/index.html"/>
+		<item name="@j4sql.function" href="doclet/function.html"/>
+		<item name="@j4sql.procedure" href="doclet/procedure.html"/>
+		<item name="@j4sql.trigger" href="doclet/trigger.html"/>
+		<item name="@j4sql.param" href="doclet/param.html"/>
 	</menu>
 
-	<menu name="J4SQL Ant task">
+	<menu name="J4SQL Ant tasks">
+		<item name="Annotations based task" href="ant/annotations.html"/>
+		<item name="Doclet based task" href="ant/annotations.html"/>
 	</menu>
 
 	<menu name="J4SQL Maven plugin">
+		<item name="Overview" href="maven/overview.html"/>
+		<item name="Goals" href="maven/goals.html"/>
+		<item name="Properties" href="maven/properties.html"/>
 	</menu>
 
 	<menu name="J4SQL Eclipse plugin">
+		<item name="Features" href="eclipse/features.html"/>
 	</menu>
 
 </project>
