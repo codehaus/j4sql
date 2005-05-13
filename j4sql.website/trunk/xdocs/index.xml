@@ -2,30 +2,24 @@
 
 <document>
 	<properties>
-		<title>J4SQL Project overview</title>
+		<title>Java stored procedures</title>
 	</properties>
 
 	<body>
-		<section name="Java Stored Procedures">
+		<section name="Short howto">
 		<p>
-		Java is a nearly ideal language for stored prcedures programming:
-		<ul>
-			<li>portable</li>
-			<li>based on open standards</li>
-			<li>safe</li>
-			<li>fast</li>
-			<li>developer-friendly</li>
-		</ul>
-		Java as stored procedure language is supported by the most database product: IBM DB2 UDB, Oracle, PostgreSQL, Sybase, and others.
-		</p>
-		</section>
-		<section name="Why J4SQL?">
-		<p>
-		Though java bytecode is portable and java stored procedures can operate using standard APIs, until now there was no toolset for developers
-		to really use java stored procedures.
+			The ISO SQL standard declares that the Java stored procedure must be a <code>public static</code> mehtod. Of course, also the class
+			must be public.
 		</p>
 		<p>
-		J4SQL is an effort to make the life of java stored procedure developers really as easy as possible. J4SQL is 100% free for both open source and commercial developement.
+			You can use a simple JDBC connection to access teh database the stored procedure is runing on, simply by calling <code>DriverManager.getConnection("jdbc:default:connection")</code>.
+			SQL portablity is always an issue, sorry we dont solve that.
+		</p>
+		<p>
+			Where to get information from vendors:
+			<ul>
+				<li>DB2: </li>
+			</ul>
 		</p>
 		</section>
 	</body>
