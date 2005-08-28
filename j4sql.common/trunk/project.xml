@@ -27,9 +27,18 @@
   <repository>
     <url>http://svn.j4sql.codehaus.org</url>
   </repository>
+  <dependencies>
+    <dependency>
+      <groupId>pmd</groupId>
+      <artifactId>pmd</artifactId>
+      <version>3.0</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
   <reports>
     <report>maven-pmd-plugin</report>
     <report>maven-checkstyle-plugin</report>
+    <report>maven-jdepend-plugin</report>
   </reports>
   <url>http://www.j4sql.org/</url>
   <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
