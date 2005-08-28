@@ -8,6 +8,7 @@
 
 	<menu name="J4SQL project overview">
 		<item name="J4SQL" href="index.html"/>
+		<item name="Kickstart Java Stored Procedures" href="jsp.html"/>
 	</menu>
 
 	<menu name="J4SQL Annotations">
@@ -16,8 +17,8 @@
 	<menu name="J4SQL Doclet tags">
 		<item name="Tag howto" href="doclet/index.html"/>
 		<item name="@j4sql.function" href="doclet/function.html"/>
-<!--		<item name="@j4sql.procedure" href="doclet/procedure.html"/>
 		<item name="@j4sql.trigger" href="doclet/trigger.html"/>
+<!--		<item name="@j4sql.procedure" href="doclet/procedure.html"/>
 		<item name="@j4sql.param" href="doclet/param.html"/> -->
 	</menu>
 
