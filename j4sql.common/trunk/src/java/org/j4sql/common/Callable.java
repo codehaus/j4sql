@@ -34,6 +34,7 @@ public abstract class Callable extends Entity {
 	private List m_parameters = null;
 	private boolean m_deterministic = false;
 	private boolean m_calledOnNullInput = false;
+	private String m_javaClassName;
 	private String m_javaMethodName;
 	private String m_schema;
 
@@ -147,5 +148,11 @@ public abstract class Callable extends Entity {
 	 */
 	public final void setSchema(String schema) {
 		m_schema = schema;
+	}
+	public final String getJavaClassName() {
+		return m_javaClassName;
+	}
+	public final void setJavaClassName(String className) {
+		m_javaClassName = className;
 	}
 }

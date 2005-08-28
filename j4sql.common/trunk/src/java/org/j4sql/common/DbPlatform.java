@@ -39,4 +39,29 @@ public interface DbPlatform {
 	 * @param out		the output
 	 */
 	public void writeComment(String comment, PrintWriter out);
+	
+	/**
+	 * 
+	 * @param classname
+	 * @return
+	 * @throws NotSupportedException
+	 */
+	public String getDefaultRDBMSType(String classname) throws NotSupportedException;
+	
+	/**
+	 * 
+	 * @param jar
+	 * @param jarname
+	 * @param out
+	 * @throws NotSupportedException
+	 */
+	public void writeDeployJar(String jar, String jarname, PrintWriter out) throws NotSupportedException;
+	
+	/**
+	 * 
+	 * @param jarname
+	 * @param out
+	 * @throws NotSupportedException
+	 */
+	public void writeUndeployJar(String jarname, PrintWriter out) throws NotSupportedException;
 }
