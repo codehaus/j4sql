@@ -8,7 +8,7 @@
   <organization>
     <name>J4SQL Developers</name>
     <url>http://www.j4sql.org/</url>
-    <logo>images/j4sql-logo1.png</logo>
+    <logo>/images/j4sql-logo1.png</logo>
   </organization>
   <inceptionYear>2005</inceptionYear>
   <description>
@@ -34,6 +34,20 @@
   </reports>
   <url>http://www.j4sql.org/</url>
   <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
+  <mailingLists>
+    <mailingList>
+      <name>developer list</name>
+      <subscribe>dev-subscribe@j4sql.codehaus.org</subscribe>
+      <unsubscribe>dev-unsubscribe@j4sql.codehaus.org</unsubscribe>
+      <archive>http://archive.j4sql.codehaus.org/dev/</archive>
+    </mailingList>
+    <mailingList>
+      <name>user list</name>
+      <subscribe>user-subscribe@j4sql.codehaus.org</subscribe>
+      <unsubscribe>user-unsubscribe@j4sql.codehaus.org</unsubscribe>
+      <archive>http://archive.j4sql.codehaus.org/user/</archive>
+    </mailingList>
+  </mailingLists>
   <developers>
     <developer>
       <name>Dave Cramer</name>
