@@ -25,8 +25,24 @@
   <siteAddress>j4sql.codehaus.org</siteAddress>
   <siteDirectory>/home/projects/j4sql/public_html/</siteDirectory>
   <repository>
+    <connection>svn://svn.j4sql.codehaus.org/j4sql/scm/</connection>
+    <developerConnection>svn+ssh://svn.j4sql.codehaus.org/home/projects/j4sql/scm</developerConnection>
     <url>http://svn.plj.codehaus.org</url>
   </repository>
+  <mailingLists>
+    <mailingList>
+      <name>developer list</name>
+      <subscribe>dev-subscribe@j4sql.codehaus.org</subscribe>
+      <unsubscribe>dev-unsubscribe@j4sql.codehaus.org</unsubscribe>
+      <archive>http://archive.j4sql.codehaus.org/dev/</archive>
+    </mailingList>
+    <mailingList>
+      <name>user list</name>
+      <subscribe>user-subscribe@j4sql.codehaus.org</subscribe>
+      <unsubscribe>user-unsubscribe@j4sql.codehaus.org</unsubscribe>
+      <archive>http://archive.j4sql.codehaus.org/user/</archive>
+    </mailingList>
+  </mailingLists>
   <url>http://www.j4sql.org/</url>
   <issueTrackingUrl>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10950</issueTrackingUrl>
   <developers>
