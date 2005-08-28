@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <pomVersion>1</pomVersion>
+  <artifactId>j4sql-examples</artifactId>
+  <name>j4sql.examples</name>
+  <groupId>j4sql</groupId>
+  <currentVersion>0.1dev</currentVersion>
+  <organization>
+    <name>J4SQL</name>
+    <url>http:///j4sql.codehaus.org/</url>
+  </organization>
+  <inceptionYear>2005</inceptionYear>
+  <shortDescription>J4SQL example and test source codes</shortDescription>
+  <repository />
+  <dependencies>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>1.6.1</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+  <build />
+  <reports>
+    <report>maven-checkstyle-plugin</report>
+    <report>maven-pmd-plugin</report>
+  </reports>
+</project>
+
