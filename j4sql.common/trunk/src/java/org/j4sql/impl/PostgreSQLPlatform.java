@@ -4,7 +4,9 @@
 package org.j4sql.impl;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.j4sql.common.Callable;
 import org.j4sql.common.DbPlatform;
@@ -23,6 +25,12 @@ import org.j4sql.common.Trigger;
  */
 public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 
+	public static final Map m_PgTypeMap = new HashMap();
+
+	static {
+		m_PgTypeMap.put("byte[]", "bytea");
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.j4sql.common.DbPlatform#writeEntity(org.j4sql.common.Entity, java.io.PrintWriter)
 	 */
@@ -45,7 +53,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	private void writeTrigger(Trigger trigger, PrintWriter out) throws NotSupportedException {
 		Callable triggerFn = trigger.getCallable();
 		writeEntity(triggerFn, out);
-		out.write(" CREATE OR REPLACE TRIGGER ");
+		out.write("\n\nCREATE OR REPLACE TRIGGER ");
 		out.write(trigger.getSchema());
 		out.write(".");
 		out.println(trigger.getName());
@@ -72,7 +80,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	}
 	
 	private void writeFunction(Function function, PrintWriter out) throws NotSupportedException {
-		out.print("CREATE OR REPLACE FUNCTION ");
+		out.print("\n\nCREATE OR REPLACE FUNCTION ");
 		out.print(function.getSchema());
 		out.print(".");
 		out.println(function.getName());
@@ -124,20 +132,16 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	protected abstract String getCallDefinition(Function function);
 	
 	/* (non-Javadoc)
-	 * @see org.j4sql.common.DbPlatform#writeComment(java.lang.String, java.io.PrintWriter)
-	 */
-	public void writeComment(String comment, PrintWriter out) {
-		String str = "-- "+comment.replaceAll("\n","\n--");
-		out.print(str);
-	}
-
-	/* (non-Javadoc)
 	 * @see org.j4sql.common.DbPlatform#getDefaultRDBMSType(java.lang.String)
 	 */
 	public String getDefaultRDBMSType(String classname)
 			throws NotSupportedException {
-		//TODO: add extra classmappings
-		return super.getDefaultRDBMSType(classname);
+		String type = super.getDefaultRDBMSType(classname);
+		if(type == null)
+			type = (String)m_PgTypeMap.get(classname);
+		if(type == null)
+			throw new NotSupportedException("Java type not supported: "+classname);
+		return type;
 	}
 
 	/* (non-Javadoc)
@@ -145,7 +149,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	 */
 	public void writeDeployJar(String jar, String jarname, PrintWriter out)
 			throws NotSupportedException {
-		out.write("select sqlj.install_jar ( \'"+jar.replaceAll("\'","\\\'")+"\' , \'"+jarname.replaceAll("\'","\\\'")+"\' , 1 )");
+		out.write("\n\nselect sqlj.install_jar ( \'"+jar.replaceAll("\'","\\\'")+"\' , \'"+jarname.replaceAll("\'","\\\'")+"\' , 1 )");
 	}
 
 	/* (non-Javadoc)
@@ -153,7 +157,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	 */
 	public void writeUndeployJar(String jarname, PrintWriter out)
 			throws NotSupportedException {
-		out.write("select sqlj.remove_jar ( \'"+jarname.replaceAll("\'","\\\'")+"\',1 )");
+		out.write("\n\nselect sqlj.remove_jar ( \'"+jarname.replaceAll("\'","\\\'")+"\',1 )");
 	}
 
 	
