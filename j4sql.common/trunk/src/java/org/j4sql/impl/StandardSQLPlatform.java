@@ -25,6 +25,7 @@ public abstract class StandardSQLPlatform implements DbPlatform {
 		//uncomplete, unchecked
 		m_defaultTypeMap.put(String.class.getName(), "varchar");
 		m_defaultTypeMap.put(Integer.class.getName(), "int");
+		m_defaultTypeMap.put("int", "int");
 		m_defaultTypeMap.put(Short.class.getName(), "short");
 	}
 
