@@ -4,6 +4,7 @@
 
 package org.j4sql.impl;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,11 @@ public abstract class StandardSQLPlatform implements DbPlatform {
 	public String getDefaultRDBMSType(String classname)
 			throws NotSupportedException {
 		return (String) m_defaultTypeMap.get(classname);
+	}
+
+	public void writeComment(String comment, PrintWriter out) {
+		String str = "\n-- "+comment.replaceAll("\n","\n--");
+		out.print(str);
 	}
 
 }
