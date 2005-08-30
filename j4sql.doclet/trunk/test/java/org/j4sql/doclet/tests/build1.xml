@@ -1,0 +1,10 @@
+<project name="test1" default="test">
+    <target name="init">
+        <taskdef name="j4sql" classname="org.j4sql.doclet.QDoxJ4SQLGenerator"/>
+    </target>
+    <target name="test" depends="init">
+        <j4sql targetPath="${basedir}" dbPlatformClass="org.j4sql.impl.PostgreSQLPLJPlatform">
+            <fileset dir="../"/>
+        </j4sql>
+    </target>
+</project>
