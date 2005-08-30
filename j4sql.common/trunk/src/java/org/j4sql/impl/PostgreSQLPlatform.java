@@ -21,7 +21,7 @@ import org.j4sql.common.Trigger;
  * 
  * @author Laszlo Hornyak
  */
-public abstract class PostgreSQLPlatform extends StandardSQLPplatform {
+public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 
 	/* (non-Javadoc)
 	 * @see org.j4sql.common.DbPlatform#writeEntity(org.j4sql.common.Entity, java.io.PrintWriter)
