@@ -7,6 +7,7 @@
 
 package org.j4sql.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,12 +32,12 @@ public abstract class Callable extends Entity {
 
 	private int m_security = SECURITY_INVOKER;
 	private int m_sqlAccess = SQLACCESS_MODIFIES;
-	private List m_parameters = null;
+	private List m_parameters = new ArrayList();
 	private boolean m_deterministic = false;
 	private boolean m_calledOnNullInput = false;
-	private String m_javaClassName;
-	private String m_javaMethodName;
-	private String m_schema;
+	private String m_javaClassName = null;
+	private String m_javaMethodName = null;
+	private String m_schema = null;
 
 	/**
 	 * Get call parameter list.
