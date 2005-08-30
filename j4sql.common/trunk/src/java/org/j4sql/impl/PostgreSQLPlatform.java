@@ -49,13 +49,15 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 			throw new NotSupportedException("Entity class not supported:"+entity.getClass());
 		}
 	}
-	
+
 	private void writeTrigger(Trigger trigger, PrintWriter out) throws NotSupportedException {
 		Callable triggerFn = trigger.getCallable();
 		writeEntity(triggerFn, out);
 		out.write("\n\nCREATE OR REPLACE TRIGGER ");
-		out.write(trigger.getSchema());
-		out.write(".");
+		if(trigger.getSchema() != null) {
+			out.write(trigger.getSchema());
+			out.write(".");
+		}
 		out.println(trigger.getName());
 		if(trigger.getWhen()==Trigger.FIRED_AFTER)
 			out.write(" AFTER ");
@@ -81,8 +83,10 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 	
 	private void writeFunction(Function function, PrintWriter out) throws NotSupportedException {
 		out.print("\n\nCREATE OR REPLACE FUNCTION ");
-		out.print(function.getSchema());
-		out.print(".");
+		if(function.getSchema() != null){
+			out.print(function.getSchema());
+			out.print(".");
+		}
 		out.println(function.getName());
 		out.print("(");
 		Iterator i = function.getParameters().iterator();
@@ -93,7 +97,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 				out.print(p.getName());
 			
 			switch(p.getParamType()){
-				case Parameter.PARAM_TYPE_IN: out.println(" in "); break;
+				case Parameter.PARAM_TYPE_IN: out.print(" in "); break;
 				case Parameter.PARAM_TYPE_INOUT:
 				case Parameter.PARAM_TYPE_OUT: throw new NotSupportedException("IN and INOUT parameters are not supported by PostgreSQL");
 			}
@@ -102,7 +106,7 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 				out.print(getDefaultRDBMSType(p.getJavaType()));
 
 			if(i.hasNext())
-				out.print(", ");
+				out.println(", ");
 		}
 		out.println(")");
 		out.print(" RETURNS ");
@@ -125,6 +129,39 @@ public abstract class PostgreSQLPlatform extends StandardSQLPlatform {
 		out.println("AS $$");
 		out.print(getCallDefinition(function));
 		out.println("$$ ;");
+		
+		if(function.getComment() != null){
+			out.print("COMMENT ON FUNCTION ");
+			if(function.getSchema() != null){
+				out.print(function.getSchema());
+				out.print(".");
+			}
+			out.print(function.getName());
+			out.print("(");
+			Iterator j = function.getParameters().iterator();
+			while(j.hasNext()){
+				Parameter p = (Parameter) j.next();
+				
+				if(p.getName() != null)
+					out.print(p.getName());
+				
+				switch(p.getParamType()){
+					case Parameter.PARAM_TYPE_IN: out.print(" in "); break;
+					case Parameter.PARAM_TYPE_INOUT:
+					case Parameter.PARAM_TYPE_OUT: throw new NotSupportedException("IN and INOUT parameters are not supported by PostgreSQL");
+				}
+
+				if(p.getSqlType() == null)
+					out.print(getDefaultRDBMSType(p.getJavaType()));
+
+				if(j.hasNext())
+					out.println(", ");
+			}
+			out.println(") IS \'");
+			out.println(function.getComment());
+			out.println("\' ;");
+			
+		}
 	}
 
 	protected abstract String langName();
