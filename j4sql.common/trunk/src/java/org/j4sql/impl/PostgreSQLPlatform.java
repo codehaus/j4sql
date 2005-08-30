@@ -21,7 +21,7 @@ import org.j4sql.common.Trigger;
  * 
  * @author Laszlo Hornyak
  */
-public abstract class PostgreSQLPlatform implements DbPlatform {
+public abstract class PostgreSQLPlatform extends StandardSQLPplatform {
 
 	/* (non-Javadoc)
 	 * @see org.j4sql.common.DbPlatform#writeEntity(org.j4sql.common.Entity, java.io.PrintWriter)
@@ -136,7 +136,8 @@ public abstract class PostgreSQLPlatform implements DbPlatform {
 	 */
 	public String getDefaultRDBMSType(String classname)
 			throws NotSupportedException {
-		return null;
+		//TODO: add extra classmappings
+		return super.getDefaultRDBMSType(classname);
 	}
 
 	/* (non-Javadoc)
