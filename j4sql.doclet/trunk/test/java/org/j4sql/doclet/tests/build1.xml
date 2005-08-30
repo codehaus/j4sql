@@ -4,7 +4,7 @@
     </target>
     <target name="test" depends="init">
         <j4sql targetPath="${basedir}" dbPlatformClass="org.j4sql.impl.PostgreSQLPLJPlatform">
-            <fileset dir="../"/>
+            <fileset dir="${basedir}/../../../../../../../j4sql.examples/main/src/java"/>
         </j4sql>
     </target>
 </project>
