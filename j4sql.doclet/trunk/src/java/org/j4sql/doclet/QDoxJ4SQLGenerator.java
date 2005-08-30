@@ -9,9 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.DateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import org.apache.tools.ant.BuildException;
@@ -170,6 +168,8 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		if (fnName == null)
 			throw new BuildException();
 		fn.setName(fnName);
+		fn.setJavaClassName(clazz.getFullyQualifiedName());
+		fn.setJavaMethodName(method.getName());
 
 		/* TODO: for urgent clearance: shall this go to the @j4sql.returns? --> */
 		String fnRet = fnDoc.getNamedParameter("returns");
@@ -191,7 +191,7 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		if (fnDet == null) {
 			fn.setDeterministic(false);
 		} else {
-			fn.setDeterministic(Boolean.getBoolean(fnDet));
+			fn.setDeterministic("true".equalsIgnoreCase(fnDet));
 		}
 
 		String fnSql = fnDoc.getNamedParameter("sqlAccess");
@@ -225,6 +225,7 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 					paramDocs);
 			fn.getParameters().add(param);
 		}
+		fn.setComment(comments.toString());
 		return fn;
 	}
 
@@ -239,7 +240,8 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 	
 	private Parameter processParamerter(StringBuffer commentBuf, JavaMethod m,
 			JavaParameter param, DocletTag[] params) throws BuildException {
-		commentBuf.append(param.getName()).append("\n");
+		//TODO: add parameter javadoc here
+		commentBuf.append(param.getName()).append("\t\t").append("\n");
 		Parameter p = new Parameter();
 		p.setJavaType(param.getType().toString());
 		p.setName(param.getName());
