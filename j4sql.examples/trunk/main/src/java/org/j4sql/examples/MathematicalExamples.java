@@ -17,7 +17,8 @@ public class MathematicalExamples {
 	 * @param b right argument of addition
 	 * @return a + b
 	 * 
-	 * 
+	 * @j4sql.function name="sum"
+	 * @j4sql.returns long
 	 */
 	public static int sum(int a, int b){
 		return a+b;

@@ -31,7 +31,7 @@ public class JavaUtilExamples {
 	 * @throws InvocationTargetException		if the getter method throws an exception
 	 * @throws NoSuchMethodException			if no getter method for the property
 	 * 
-	 * @j4sql.function name="get_property" deterministic="true" sqlAccess="no"
+	 * @j4sql.function name="get_property" deterministic="true" sqlAccess="none"
 	 * 
 	 */
 	public static String getProperty(byte[] sObject, String property)
@@ -43,4 +43,6 @@ public class JavaUtilExamples {
 		return BeanUtils.getSimpleProperty(obj, property);
 	}
 
+	
+	
 }
