@@ -27,7 +27,6 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaParameter;
 
-
 /**
  * 
  * 
@@ -36,9 +35,12 @@ import com.thoughtworks.qdox.model.JavaParameter;
 public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 
 	private DbPlatform m_dbPlatform = null;
+
 	private String m_dbPlatformClass = null;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.thoughtworks.qdox.ant.AbstractQdoxTask#execute()
 	 */
 	public void execute() throws BuildException {
@@ -48,10 +50,15 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 				throw new BuildException(
 						"The attribute targetPath is mandatory");
 			}
+			if (m_dbPlatformClass == null) {
+				throw new BuildException(
+						"The attribute dbPlatformClass is mandatory");
+			}
 			super.execute();
 
-			//dbPlatform = new PostgreSQLPLJ();
-			m_dbPlatform = (DbPlatform)Class.forName(m_dbPlatformClass).newInstance();
+			// dbPlatform = new PostgreSQLPLJ();
+			m_dbPlatform = (DbPlatform) Class.forName(m_dbPlatformClass)
+					.newInstance();
 			log("Generating code for " + m_dbPlatform.getName());
 
 			FileOutputStream fos = null;
@@ -89,9 +96,10 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		}
 
 	}
-	private String targetPath = null;
-	private String platform = "PostgreSQLPLJ";
 
+	private String targetPath = null;
+
+	private String platform = "PostgreSQLPLJ";
 
 	public String getPlatform() {
 		return platform;
@@ -134,6 +142,7 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 	}
 
 	private static final String J4SQL_FUNCTION = "j4sql.function";
+
 	private static final String J4SQL_TRIGGER = "j4sql.trigger";
 
 	private void processMethod(JavaMethod method, JavaClass clazz,
@@ -150,12 +159,11 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		if (fnDoc != null) {
 			entity = processFunction(fnDoc, method, clazz, pw);
 			m_dbPlatform.writeEntity(entity, pw);
-		} else
-		if(procDoc != null){
-			//entity = pro
+		} else if (procDoc != null) {
+			// entity = pro
 		}
-		if(trigDocs != null && trigDocs.length > 0){
-		//	entity = pro
+		if (trigDocs != null && trigDocs.length > 0) {
+			// entity = pro
 		}
 	}
 
@@ -164,21 +172,22 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 			NotSupportedException {
 		Function fn = new Function();
 
+		if ((!method.isStatic()) || (!method.isPublic()))
+			throw new NotSupportedException(
+					"Java stored procedures must be public static methods. Class: "
+							+ clazz.getName() + " Method:" + method.getName());
+
+		if (!clazz.isPublic())
+			throw new NotSupportedException(
+					"Java stored procedures must be public in public classes. Class: "
+							+ clazz.getName());
+
 		String fnName = fnDoc.getNamedParameter("name");
 		if (fnName == null)
 			throw new BuildException();
 		fn.setName(fnName);
 		fn.setJavaClassName(clazz.getFullyQualifiedName());
 		fn.setJavaMethodName(method.getName());
-
-		/* TODO: for urgent clearance: shall this go to the @j4sql.returns? --> */
-		String fnRet = fnDoc.getNamedParameter("returns");
-		if (fnRet == null) {
-			fnRet = method.getReturns().getJavaClass()
-					.getFullyQualifiedName();
-		}
-		fn.setJavaReturnType(fnRet);
-		/* <-- */
 
 		String onNull = fnDoc.getNamedParameter("onNullInput");
 		if (onNull == null) {
@@ -217,7 +226,7 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		comments.append("\n\n");
 		JavaParameter[] params = method.getParameters();
 		if (params.length > 0) {
-			comments.append("Parameters:\n============\n");
+			comments.append("\nParameters:\n============\n");
 		}
 		DocletTag[] paramDocs = method.getTagsByName("param");
 		for (int i = 0; i < params.length; i++) {
@@ -225,11 +234,28 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 					paramDocs);
 			fn.getParameters().add(param);
 		}
+
+		/* TODO: add returns to SQL comment */
+		DocletTag javaReturn = method.getTagByName("return");
+		if (javaReturn != null) {
+			String fnRet = javaReturn.getValue();
+			comments.append("\nReturns:\n============\n").append(fnRet).append(
+					"\n");
+		}
+
+		DocletTag j4SQLReturn = method.getTagByName("j4sql.returns");
+		if (j4SQLReturn != null) {
+			fn.setSqlReturnType(j4SQLReturn.getValue());
+		}
+		fn.setJavaReturnType(method.getReturns().getJavaClass()
+				.getFullyQualifiedName());
+
 		fn.setComment(comments.toString());
 		return fn;
 	}
 
-	private Trigger processTrigger(JavaMethod method, JavaClass clazz, PrintWriter pw) {
+	private Trigger processTrigger(JavaMethod method, JavaClass clazz,
+			PrintWriter pw) {
 		return null;
 	}
 
@@ -237,11 +263,13 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 		return null;
 	}
 
-	
 	private Parameter processParamerter(StringBuffer commentBuf, JavaMethod m,
 			JavaParameter param, DocletTag[] params) throws BuildException {
-		//TODO: add parameter javadoc here
+
+		// TODO: SQL comment on should contain the parameter documentation
+		// (J4SQL-3)
 		commentBuf.append(param.getName()).append("\t\t").append("\n");
+
 		Parameter p = new Parameter();
 		p.setJavaType(param.getType().toString());
 		p.setName(param.getName());
@@ -273,6 +301,7 @@ public class QDoxJ4SQLGenerator extends AbstractQdoxTask {
 	public String getDbPlatformClass() {
 		return m_dbPlatformClass;
 	}
+
 	public void setDbPlatformClass(String platformClass) {
 		m_dbPlatformClass = platformClass;
 	}
