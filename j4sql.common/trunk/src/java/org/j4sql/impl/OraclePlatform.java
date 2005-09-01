@@ -3,12 +3,13 @@ package org.j4sql.impl;
 import java.io.PrintWriter;
 
 import org.j4sql.common.Entity;
+import org.j4sql.common.Function;
 import org.j4sql.common.NotSupportedException;
 
 /**
- * @author laszlo_hornyak
+ * Oracle 10g Platform implementation. See 
  * 
- * // TODO: Edit documentation for OraclePlatform
+ * @author Laszlo Hornyak
  */
 public class OraclePlatform extends StandardSQLPlatform {
 
@@ -17,10 +18,31 @@ public class OraclePlatform extends StandardSQLPlatform {
 	 */
 	public void writeEntity(Entity entity, PrintWriter out)
 			throws NotSupportedException {
-		// TODO Auto-generated method stub
-
+		if(entity instanceof Function){
+			writeFunction((Function)entity, out);
+		} else {
+			throw new NotSupportedException("Not supported.");
+		}
 	}
 
+	/**
+	 * Write deployment code of function to output.
+	 * see http://download-uk.oracle.com/docs/cd/B19306_01/server.102/b14200/statements_5009.htm#sthref5063
+	 * 
+	 * @param function
+	 * @param out
+	 * @throws NotSupportedException
+	 */
+	protected void writeFunction(Function function, PrintWriter out) throws NotSupportedException {
+		out.print("CREATE OR REPLACE FUNCTION ");
+		if(function.getSchema() != null){
+			out.print(function.getSchema());
+			out.print(".");
+		}
+		out.print(function.getName());
+		
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.j4sql.common.DbPlatform#getName()
 	 */
