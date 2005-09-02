@@ -1,10 +1,25 @@
-<project name="test1" default="test">
+<project name="test1" default="testAll">
     <target name="init">
         <taskdef name="j4sql" classname="org.j4sql.doclet.QDoxJ4SQLGenerator"/>
     </target>
-    <target name="test" depends="init">
+    
+    <target name="testAll" depends="testPostgreSQL_PlJ, testOracle10g, testDb2_81"/>
+    
+    <target name="testPostgreSQL_PlJ" depends="init">
         <j4sql targetPath="${basedir}" dbPlatformClass="org.j4sql.impl.PostgreSQLPLJPlatform">
             <fileset dir="${basedir}/../../../../../../../j4sql.examples/main/src/java"/>
         </j4sql>
     </target>
+
+    <target name="testOracle10g" depends="init">
+         <j4sql targetPath="${basedir}" dbPlatformClass="org.j4sql.impl.OraclePlatform">
+             <fileset dir="${basedir}/../../../../../../../j4sql.examples/main/src/java"/>
+         </j4sql>
+    </target>
+    <target name="testDb2_81" depends="init">
+        <j4sql targetPath="${basedir}" dbPlatformClass="org.j4sql.impl.DB2Platform">
+            <fileset dir="${basedir}/../../../../../../../j4sql.examples/main/src/java"/>
+        </j4sql>
+    </target>
+    
 </project>
